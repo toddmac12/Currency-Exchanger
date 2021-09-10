@@ -1,12 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // new line
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: '../src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
+  },
+
+ devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist'
   },
   plugins: [
     new CleanWebpackPlugin(), // new line
@@ -16,15 +22,17 @@ module.exports = {
       inject: 'body'
     })
   ],
-  // In the lessons "..." stands for code that already exists
+
+ new Dotenv()
+  ],
+  
  
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test:/\.html$/,
         use: [
-          'style-loader',
-          'css-loader'
+          'html-loader'
         ]
       },
       {
