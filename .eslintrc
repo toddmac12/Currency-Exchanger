@@ -12,6 +12,7 @@
     },
     "rules": {
         "semi": 1,
-        "indent": ["warn", 2]
+        "indent": ["warn", 1],
+    "no-debugger": "warn"
     }
 }
