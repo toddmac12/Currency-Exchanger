@@ -32,7 +32,6 @@ $(document).ready(function () {
     console.error(isInputValid.message);
     throw RangeError("Not a valid entry");
    } else {
-    console.log("Successful.");
     $('#convertedAmount').show();
     $('#displayError').hide();
    }
