@@ -15,6 +15,14 @@ function checkInput(dollar) {
 }
 
 $(document).ready(function () {
+ var currency = "../src/currencyList.json";
+
+ $.getJSON(currency, function (data) {
+  // eslint-disable-next-line no-unused-vars
+  data.currency.forEach(function(value, index){
+   $('#currency').append('<option>' + value + '</option>');
+  });
+ });
  $('#convert').click(function () {
   let dollar = $('#amount').val();
   let currency = $("#currency").val();
@@ -41,5 +49,6 @@ $(document).ready(function () {
    $('#displayError').show();
    $("#convertedAmount").hide();
   }
+
  });
 });
